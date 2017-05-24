@@ -27,9 +27,12 @@ RUN apt-get update && \
   
 RUN pip3 install -U pip requests redis requests_toolbelt chardet selenium
 
-RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 &&\
-  tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-  cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+  	tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+  	cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/ && \
+	apt-get clean &&  \
+        rm -rf /var/lib/apt/lists/*
+
 
 
 
